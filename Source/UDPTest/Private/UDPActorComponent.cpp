@@ -43,13 +43,11 @@ void UUDPActorComponent::TickComponent( float DeltaTime, ELevelTick TickType, FA
 	// ...
 
 	uint32 Bytes;
-	if (Socket->HasPendingData(Bytes))
-	{
+	if (Socket->HasPendingData(Bytes)) {
 		uint8 data[64] = { 0 };
 		int32 read_bytes;
 		Socket->Recv(data, sizeof(data), read_bytes);
-		if (read_bytes > 0)
-		{
+		if (read_bytes > 0) {
 			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0, FColor::Yellow, *FString::Printf(TEXT("read_bytes=%d : %s"), read_bytes, data));
 			AActor *actor = GetOwner();
 			FVector t = actor->GetActorLocation();
@@ -71,8 +69,7 @@ void UUDPActorComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
 	Super::EndPlay(EndPlayReason);
 
-	if (Socket)
-	{
+	if (Socket) {
 		Socket->Close();
 		delete Socket;
 	}

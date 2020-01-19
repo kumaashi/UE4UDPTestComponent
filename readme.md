@@ -10,5 +10,5 @@ NYSL (http://www.kmonos.net/nysl/)
 
 ## Author
 
-gyabo(aka yasai kumaashi)
+	gyabo(aka yasai kumaashi)
 
